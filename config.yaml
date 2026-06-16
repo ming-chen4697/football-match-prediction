@@ -1,0 +1,69 @@
+# Football Prediction System Configuration
+
+# Data Sources
+data_sources:
+  statsbomb:
+    api_url: "https://raw.githubusercontent.com/statsbomb/open-data/master/data"
+    enabled: true
+    cache_enabled: true
+    cache_expiry_hours: 24
+  
+  football_json:
+    api_url: "https://raw.githubusercontent.com/openfootball/football.json/master"
+    enabled: true
+    cache_enabled: true
+
+# Leagues (ISO codes)
+leagues:
+  - "en"  # England Premier League
+  - "es"  # Spain La Liga
+  - "it"  # Italy Serie A
+  - "de"  # Germany Bundesliga
+  - "fr"  # France Ligue 1
+
+# Seasons
+seasons:
+  - 2020
+  - 2021
+  - 2022
+  - 2023
+  - 2024
+
+# Data Processing
+preprocessing:
+  remove_duplicates: true
+  handle_missing_values: true
+  normalize_player_names: true
+  remove_outliers: true
+  outlier_threshold: 3
+
+# Feature Engineering
+features:
+  rolling_window_days: 10
+  aggregate_stats: true
+  create_team_stats: true
+
+# Machine Learning
+ml:
+  test_size: 0.2
+  validation_size: 0.1
+  random_state: 42
+  
+  models:
+    logistic_regression:
+      enabled: true
+    random_forest:
+      enabled: true
+    xgboost:
+      enabled: true
+
+# Visualization
+visualization:
+  default_theme: "plotly"
+  enable_interactive: true
+  save_static_images: true
+
+# Logging
+logging:
+  level: "INFO"
+  file_path: "logs/app.log"
